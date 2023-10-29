@@ -1,0 +1,39 @@
+Q1 FACTORIAL OF GIVEN NUMBER
+
+declare
+num int;
+fact int;
+i int;
+begin
+num := &num;
+fact := 1;
+for i in 1..num loop
+fact := fact * i;
+end loop;
+dbms_output.put_line('Factorial of '||num||' is: '||fact);
+end;
+/
+
+Q2 FIBONACCI SERIES UPTO 10 TERMS
+
+declare
+a int;
+b int;
+c int;
+i int;
+begin
+a := 0;
+b := 1;
+i := 3;
+dbms_output.put_line(a);
+dbms_output.put_line(b);
+while i<=10 loop
+c := a+b;
+dbms_output.put_line(c);
+a := b;
+b := c;
+i := i+1;
+end loop;
+end;
+/
+

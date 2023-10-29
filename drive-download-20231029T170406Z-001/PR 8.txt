@@ -1,0 +1,48 @@
+Q1 CREATE TABLE customer1
+
+create table customer1(id number,name varchar2(20),age number(2),address varchar2(50),salary number(10));
+
+insert into customer1 values(1,'Ramesh',25,'Mumbai',20000);
+insert into customer1 values(2,'Suresh',24,'Delhi',40000);
+insert into customer1 values(3,'Mahesh',28,'Chennai',50000);
+insert into customer1 values(4,'Nilesh',30,'Kolkata',60000);
+
+Q2 CREATING TRIGGER USING BEFORE CLAUSE
+
+create or replace trigger display_salary_changes
+before delete or insert or update on customer1
+for each row
+when (new.id > 0)
+declare
+sal_diff number;
+begin
+sal_diff := :new.salary - :old.salary;
+dbms_output.put_line('Old Salary: '||:old.salary);
+dbms_output.put_line('new Salary: '||:new.salary);
+dbms_output.put_line('Salary Difference: '||sal_diff);
+end;
+/
+
+insert into customer1 values(5,'Shailesh',27,'Banglore',70000);
+
+update customer1 set salary = salary + 5000 where id = 2;
+
+Q3 CREATING TRIGGER USING AFTER CLAUSE
+
+create or replace trigger display_salary_changes
+after delete or insert or update on customer1
+for each row
+when (new.id > 0)
+declare
+sal_new number;
+begin
+sal_new := :new.salary + :old.salary;
+dbms_output.put_line('Old Salary: '||:old.salary);
+dbms_output.put_line('new Salary: '||:new.salary);
+dbms_output.put_line('Salary: '||sal_new);
+end;
+/
+
+insert into customer1 values(6,'Manish',29,'Nagpur',80000);
+
+update customer1 set salary = salary + 5000 where id = 3;

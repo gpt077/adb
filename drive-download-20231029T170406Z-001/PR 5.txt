@@ -1,0 +1,31 @@
+Q1 PRINT 10 TO 19 NUMBERS EXCEPT 15 USING GOTO STATEMENT
+
+declare
+a int;
+begin
+a := 10;
+<<jump>>
+while a<20 loop
+dbms_output.put_line('value of a: '||a);
+a := a+1;
+if (a = 15) then
+a := a+1;
+goto jump;
+end if;
+end loop;
+end;
+/
+
+Q2 DEMONSTRATE USE OF NULL STATEMENT
+
+declare 
+a int;
+begin
+a := &a;
+if(a = 15) then 
+dbms_output.put_line('Guess is Correct');
+else
+NULL;
+end if;
+end;
+/ 

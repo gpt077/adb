@@ -1,0 +1,64 @@
+Q1 EVEN OR ODD
+
+declare 
+a int;
+begin
+a := &a;
+if(mod(a,2) = 0) then
+dbms_output.put_line(a||' is even.');
+else
+dbms_output.put_line(a||' is odd.');
+end if;
+end;
+/
+
+Q2 FIND GREATEST OF THREE NUMBERS
+
+declare
+a int;
+b int;
+c int;
+begin
+a := &a;
+b := &b;
+c := &c;
+if (a>b and a>c) then
+dbms_output.put_line(a||' is greatest.');
+elsif (b>a and b>c) then 
+dbms_output.put_line(b||' is greatest.');
+else
+dbms_output.put_line(c||' is greatest.');
+end if;
+end;
+/
+
+Q3 DISPLAY GRADE OF STUDENTS DEPENDING ON THEIR PERCENTAGE
+
+declare
+per float;
+grade char(1);
+begin
+per := &per;
+
+if (per >= 75.00) then
+grade := 'D';
+elsif (per <75.00 and per >= 60.00) then
+grade := 'F';
+elsif (per <60.00 and per >= 45.00) then
+grade := 'S';
+elsif (per <45.00 and per >= 35.00) then
+grade := 'P';
+else
+grade := 'K';
+end if;
+case
+when grade = 'D' then dbms_output.put_line('Distinction');
+when grade = 'F' then dbms_output.put_line('First class');
+when grade = 'S' then dbms_output.put_line('Second class');
+when grade = 'P' then dbms_output.put_line('Pass');
+when grade = 'K' then dbms_output.put_line('Fail');
+else
+dbms_output.put_line('No such grade');
+end case;
+end;
+/

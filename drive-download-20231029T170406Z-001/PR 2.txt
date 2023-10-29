@@ -1,0 +1,56 @@
+Q1 CREATE SEQUENCE A1 WITH INCREMENT BY AND START WITH AS 1 AND MAX VALUE 5
+
+create sequence A1
+increment by 1
+start with 1
+maxvalue 5;
+
+
+select A1.currval,A1.nextval from dual connect by level <= 7;
+
+Q2 CREATE SEQUENCE A2 WITH INCREMENT BY 10 AND START WITH AS 10, MAX VALUE 50,MIN VALUE 10 CACHE 2 AND WITH CYCLE CLAUSE.
+
+create sequence A2
+start with 10
+increment by 10 
+maxvalue 50
+minvalue 10 
+cache 2
+cycle;
+
+
+select A2.currval,A2.nextval from dual connect by level<=7;
+
+Q3 CREATE SEQUENCE A3 WITH INCREMENT BY 1 AND START WITH AS 100, MAX VALUE 105, CACHE 3 AND WITH CYCLE CLAUSE.
+
+create sequence A3
+start with 100
+increment by 1
+maxvalue 105
+cache 3
+cycle;
+
+
+select A3.currval,A3.nextval from dual connect by level<=7;
+
+select A3.currval,A3.nextval from dual connect by level<=9;
+
+Q4 CREATE TABLE WITH COLUMNS ROLLNO AND SNAME 
+
+create table stud(rollno number(3),sname varchar2(20));
+
+Q5 INSERT VALUES IN THE TABLE USING SEQUENCE A2 AND A3
+
+insert into stud values(A2.nextval,'Sam');
+insert into stud values(A2.nextval,'Geeta');
+insert into stud values(A2.nextval,'Shyam');
+insert into stud values(A2.nextval,'Ram');
+
+select * from stud;
+
+insert into stud values(A3.nextval,'Sam');
+insert into stud values(A3.nextval,'Geeta');
+insert into stud values(A3.nextval,'Shyam');
+insert into stud values(A3.nextval,'Ram');
+
+select * from stud;

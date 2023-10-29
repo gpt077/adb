@@ -1,0 +1,35 @@
+Q1 DISPLAY MESSAGE "Welcome to PL/SQL Programming"
+
+begin
+dbms_output.put_line('Welcome to PL/SQL Programming');
+end;
+/
+
+Q2 ADD TWO NUMBERS
+
+declare
+a int;
+b int;
+c int;
+begin
+a := &a;
+b := &b;
+c := a+b;
+dbms_output.put_line('Addition of two numbers is: '||c);
+end;
+/
+
+Q3 DISPLAY NATURAL NUMBERS UPTO 10 USING BASIC LOOP
+
+declare
+num int := 1;
+begin
+loop
+if num > 10 then
+exit;
+end if;
+dbms_output.put_line(num);
+num := num + 1;
+end loop;
+end;
+/
